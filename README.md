@@ -34,6 +34,24 @@ The calculation can be based on the year of birth, death rates, current age, and
 
 There are other definitions, but they will not be used in this project. If you'd like to know more, you can always contact me at d.d.latumalea@hst.hanze.nl
 
+## SOLID
+### Single Responsibility Principle
+- A class should have, and only one reason to change.
+- A class can have multiple methods as long as they correspond to the same logic.
+
+### Open Close Principle
+- Be able to extend a classes behaviour, without modifying it.
+
+### Liskov Substitution Principle
+- Derived classes must be substitutable for their base classes.
+
+### Interface Segregation Principle
+- Make fine grained interfaces that are client specific.
+
+### Dependency Inversion Principle
+- Depend on abstractions, not on concretions.
+
+
 ## Resources
 <sup>a</sup>https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases
 

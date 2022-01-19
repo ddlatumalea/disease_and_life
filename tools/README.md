@@ -1,0 +1,1 @@
+Convenience directory that contains script to automate certain tasks. For example, build scripts, rename scripts. Contains .sh, .cmd files.

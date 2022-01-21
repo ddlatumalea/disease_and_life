@@ -1,1 +1,2 @@
-datadir: 'data/'
+data_dir: 'data/'
+data_cleaned_dir: 'data/cleaned/'

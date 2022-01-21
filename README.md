@@ -51,6 +51,8 @@ There are other definitions, but they will not be used in this project. If you'd
 ### Dependency Inversion Principle
 - Depend on abstractions, not on concretions.
 
+# Running the files
+1) Run `preprocessing.py` to clean the files.
 
 ## Resources
 <sup>a</sup>https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases

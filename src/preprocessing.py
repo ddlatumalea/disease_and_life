@@ -10,10 +10,18 @@ def get_data_path():
     with open('config.yaml', 'r') as stream:
         config = yaml.safe_load(stream)
 
-    return config['datadir']
+    return config['data_dir']
+
+
+def get_cleaned_data_path():
+    with open('config.yaml', 'r') as stream:
+        config = yaml.safe_load(stream)
+
+    return config['data_cleaned_dir']
 
 
 DATA_DIR = get_data_path()
+DATA_CLEANED_DIR = get_cleaned_data_path()
 
 LIFE_EXPECTANCY_FILE = 'life_expectancy_at_birth.xlsx'
 COUNTRY_CODES_FILE = 'country_codes'
@@ -24,7 +32,6 @@ LIFE_EXPECTANCY_PATH = Path(DATA_DIR, LIFE_EXPECTANCY_FILE)
 COUNTRY_CODES_PATH = Path(DATA_DIR, COUNTRY_CODES_FILE)
 POPULATION_PATH = Path(DATA_DIR, POPULATION_FILE)
 MORTALITY_PATH = Path(DATA_DIR, MORTALITY_FILE)
-
 
 if __name__ == '__main__':
     # Load datasets
@@ -41,4 +48,9 @@ if __name__ == '__main__':
     df_country_codes = clean_country_codes(df_country_codes)
     df_population = clean_population(df_population)
     df_mortality = clean_mortality(df_mortality)
-    print(df_mortality)
+
+    # save files
+    df_life_exp.to_csv(Path(DATA_CLEANED_DIR, 'life_expectancy.csv'))
+    df_country_codes.to_csv(Path(DATA_CLEANED_DIR, 'country_codes.csv'))
+    df_population.to_csv(Path(DATA_CLEANED_DIR, 'population.csv'))
+    df_mortality.to_csv(Path(DATA_CLEANED_DIR, 'mortality.csv'))

@@ -50,7 +50,7 @@ if __name__ == '__main__':
     df_mortality = clean_mortality(df_mortality)
 
     # save files
-    df_life_exp.to_csv(Path(DATA_CLEANED_DIR, 'life_expectancy.csv'))
-    df_country_codes.to_csv(Path(DATA_CLEANED_DIR, 'country_codes.csv'))
-    df_population.to_csv(Path(DATA_CLEANED_DIR, 'population.csv'))
-    df_mortality.to_csv(Path(DATA_CLEANED_DIR, 'mortality.csv'))
+    df_life_exp.to_csv(Path(DATA_CLEANED_DIR, 'life_expectancy.csv'), index=False)
+    df_country_codes.to_csv(Path(DATA_CLEANED_DIR, 'country_codes.csv'), index=False)
+    df_population.to_csv(Path(DATA_CLEANED_DIR, 'population.csv'), index=False)
+    df_mortality.to_csv(Path(DATA_CLEANED_DIR, 'mortality.csv'), index=False)

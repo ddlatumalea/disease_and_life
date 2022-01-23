@@ -1,2 +1,3 @@
 data_dir: 'data/'
 data_cleaned_dir: 'data/cleaned/'
+data_prepared_dir: 'data/prepared/'

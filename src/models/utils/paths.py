@@ -23,3 +23,10 @@ def get_standardized_data_file() -> str:
         config = yaml.safe_load(stream)
 
     return config['standardized_data']
+
+
+def get_data_path() -> str:
+    with open('config.yaml', 'r') as stream:
+        config = yaml.safe_load(stream)
+
+    return config['data_dir']

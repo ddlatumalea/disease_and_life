@@ -15,6 +15,7 @@ In general, deaths by non-communicable chronic diseases seem to decline, except 
 This could also be due to demographic factors.
 
 ## 2) Pearson Correlation
+Pearson correlation was chosen as a first method, because of the ease of use. It provides insight in the correlation between time series.
 
 *The Netherlands*
 <ul>
@@ -33,6 +34,8 @@ We see The Netherlands show a very high negative correlation, while Japan shows 
 <strong>Conclusion</strong>: There seems to be a high (positive/negative) correlation between non-communicable chronic diseases and life expectancy.
 
 ## 3) Cross validation
+Cross validation was chosen as second method, as it also provides insight in correlation, but cross validates the result. 
+This is more valid for time series. 
 
 *The Netherlands*:
 <ul>
@@ -45,6 +48,12 @@ We see The Netherlands show a very high negative correlation, while Japan shows 
 </ul>
 
 ## 4) Granger
+The Granger test is mostly used to test if one series is predictive for the other.
+The test is chosen, because it is useful to know if the amount of non-communicable deaths can forecast the life expectancy.
+
+H0: lagged x-values do not explain the variation in y.<br>
+H1: lagged x-values do explain the variation in y.
+
 Normally this test should use stationary time series data. Due to difficulties making
 this time series stationary, I used the standardized data as it is.
 

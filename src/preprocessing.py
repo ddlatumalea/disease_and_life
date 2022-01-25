@@ -4,24 +4,12 @@ from pathlib import Path
 import pandas as pd
 
 from models.cleaners import clean_population, clean_country_codes, clean_life_expectancy, clean_mortality
-
-
-def get_data_path():
-    with open('config.yaml', 'r') as stream:
-        config = yaml.safe_load(stream)
-
-    return config['data_dir']
-
-
-def get_cleaned_data_path():
-    with open('config.yaml', 'r') as stream:
-        config = yaml.safe_load(stream)
-
-    return config['data_cleaned_dir']
+from models.utils.paths import get_data_path, get_cleaned_data_path, get_prepared_data_path
 
 
 DATA_DIR = get_data_path()
 DATA_CLEANED_DIR = get_cleaned_data_path()
+DATA_PREPARED_DIR = get_prepared_data_path()
 
 NL_LIFE_EXP_FILE = 'netherlands_life_exp.xlsx'
 JP_LIFE_EXP_FILE = 'japan_life_exp.xlsx'
@@ -39,6 +27,12 @@ POPULATION_PATH = Path(DATA_DIR, POPULATION_FILE)
 MORTALITY_PATH = Path(DATA_DIR, MORTALITY_FILE)
 
 if __name__ == '__main__':
+    if not Path(Path(DATA_CLEANED_DIR)).exists():
+        Path.mkdir(Path(DATA_CLEANED_DIR))
+
+    if not Path(Path(DATA_PREPARED_DIR)).exists():
+        Path.mkdir(Path(DATA_PREPARED_DIR))
+
     # Load datasets
     mortality_datasets = [Path(DATA_DIR, f"{MORTALITY_FILE}{str(i + 1)}") for i in range(0, 5)]
     mortality_datasets = [pd.read_csv(data_path) for data_path in mortality_datasets]

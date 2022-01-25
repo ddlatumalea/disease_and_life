@@ -12,6 +12,9 @@ Contact: d.d.latumalea@st.hanze.nl
 ------------------
 
 **NOTE**
+- Unfortunately the health organizations in The Netherlands do not keep track of all the numbers of non-communicable diseases.
+They also do not provide data per year. The most data I could find about a specific manicupality were 2 data points in 10 year.
+Based on the lack of data, I decided to compare data on a country-level.
 - I chose not to extrapolate data of Canada as it contains many missing values. They did not report
 their data to the WHO before 2000 and after 2005. It is outside the scope of this application to
 extrapolate data based on data from other countries.

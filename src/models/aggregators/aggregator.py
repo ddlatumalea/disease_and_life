@@ -46,7 +46,7 @@ class Aggregator:
 
         self.__handler(aggr)
 
-    def get_aggregation(self, sort_by) -> pd.DataFrame:
+    def get_aggregation(self, sort_by: str) -> pd.DataFrame:
         """Returns the aggregation.
 
         Keyword arguments:

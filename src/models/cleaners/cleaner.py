@@ -12,6 +12,11 @@ import pandas as pd
 
 
 class Cleaner(ABC):
+    """ Abstract method that cleanes a file.
+
+    Keyword arguments:
+        file -- the file to clean
+    """
 
     def __init__(self, file: object) -> None:
         self.file = file
@@ -26,8 +31,13 @@ class Cleaner(ABC):
 
 
 class DataFrameCleaner(Cleaner):
+    """DataFrame-specific cleaner. Cleanes the raw files.
 
-    def __init__(self, file: pd.DataFrame):
+    Keyword arguments:
+        file -- a pandas DataFrame to clean.
+    """
+
+    def __init__(self, file: pd.DataFrame) -> None:
         if not isinstance(file, pd.DataFrame):
             raise ValueError('Expects a pandas DataFrame.')
 
@@ -51,11 +61,11 @@ class DataFrameCleaner(Cleaner):
         try:
             self.file = self.file.astype(mapping)
         except KeyError:
-            print('Some error occurred.')
+            print('Key not found.')
         except Exception as e:
             print('Some error occurred', e)
 
-    def convert_values(self, mapping, column) -> None:
+    def convert_values(self, mapping: dict, column: str) -> None:
 
         def convert(x):
             return mapping[x]
@@ -188,10 +198,11 @@ def clean_mortality(df: pd.DataFrame) -> pd.DataFrame:
     cleaner.keep_columns(cols_to_keep)
 
     if cleaner.has_missing_values():
-        cleaner.handle_missing_values(func=handle_nan)
+        pass
+        # cleaner.handle_missing_values(func=handle_nan)
 
     cleaner.rename_columns(cols_names)
     cleaner.assign_dtypes(dtypes_mapping)
-    cleaner.convert_values(mapping_sex, 'sex')
+    # cleaner.convert_values(mapping_sex, 'sex')
 
     return cleaner.get_data()

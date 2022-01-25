@@ -52,7 +52,12 @@ There are other definitions, but they will not be used in this project. If you'd
 - Depend on abstractions, not on concretions.
 
 # Running the files
+
+Make sure to install the dependencies with `pip install -r requirements.txt`
+
 1) Run `preprocessing.py` to clean the files.
+2) Run `preparation.py` to prepare the files.
+3) Run `main.py` to run the dashboard.
 
 ## Resources
 <sup>a</sup>https://www.who.int/news-room/fact-sheets/detail/noncommunicable-diseases

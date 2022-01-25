@@ -1,4 +1,16 @@
 # Life Expectancy and Disease
+
+-----------------------
+Author: Djakim Latumalea
+
+University: Hanze University of Applied Sciences
+
+Institute: Life Science & Technology
+
+Contact: d.d.latumalea@st.hanze.nl
+
+------------------
+
 This notebook tries to answer the following research question:
 *Do non-communicable chronic diseases influence the life expectancy at birth?*
 
@@ -15,5 +27,5 @@ The data is then further analyzed using graphs and statistical tests.
 - Non-communicable diseases are predictive of the life expectancy, based on a p-value < 0.0 using Granger causality tests.
 
 *Discussion*:<br>
-- There may be other hidden factors that influence the life expectancy.
+- There may be other hidden factors that influence the life expectancy.<br>
 - Demographics play a very big role, and in this document they are not taken into account.

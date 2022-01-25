@@ -14,7 +14,7 @@ class HomePage(Page):
 
     def __init__(self):
         super().__init__()
-        self.pane = pn.pane.Markdown(home)
+        self.pane = pn.pane.Markdown(home, width=1000)
         self.button = pn.widgets.Button(name='Home')
 
     def get_contents(self):

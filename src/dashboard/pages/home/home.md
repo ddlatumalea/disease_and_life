@@ -11,6 +11,11 @@ Contact: d.d.latumalea@st.hanze.nl
 
 ------------------
 
+**NOTE**
+- I chose not to extrapolate data of Canada as it contains many missing values. They did not report
+their data to the WHO before 2000 and after 2005. It is outside the scope of this application to
+extrapolate data based on data from other countries.
+
 This dashboard tries to answer the following research question:
 *Do non-communicable chronic diseases influence the life expectancy at birth?*
 

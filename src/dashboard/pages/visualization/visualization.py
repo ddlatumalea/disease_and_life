@@ -39,27 +39,6 @@ def get_line_plot(df, x_col, y_col, index, title, width=500):
 
 data = pd.read_csv(Path(PREPARED_DATA_DIR, PREPARED_DATA_FILE))
 df = data[data['sex'] == 3]
-df['country'] = 'Netherlands'
-
-checkbutton_group = pn.widgets.CheckButtonGroup(name='Countries', value=['Netherlands'],
-                                                options=['Netherlands', 'Japan'])
-
-# PLOTS
-life_exp_plot = pn.pane.Plotly(
-    px.line(df, x='year', y='life expectancy [age]', color='country', title='life expectancy'))
-plots = []
-for col in COLUMNS[:-1]:
-    plots.append(pn.pane.Plotly(px.line(df, x='year', y=col, color='country', title=col.replace('[death]', ''))))
-
-gspec = pn.GridSpec(ncols=2, nrows=4, width=1200, height=1800)
-
-gspec[0, :] = life_exp_plot
-gspec[1, 0] = plots[0]
-gspec[1, 1] = plots[1]
-gspec[2, 0] = plots[2]
-gspec[2, 1] = plots[3]
-gspec[3, 0] = plots[4]
-gspec[3, 1] = plots[5]
 
 
 class VisualizationPage(Page):
@@ -67,9 +46,41 @@ class VisualizationPage(Page):
     def __init__(self):
         super().__init__()
         self.df = df
-        # self.pane = pn.Column(get_correlation_heatmap(self.df, COLUMNS))
-        self.pane = pn.Column(checkbutton_group, gspec)
+        self.checkbutton = pn.widgets.CheckButtonGroup(name='Countries', value=['Netherlands'],
+                                                       options=['Netherlands', 'Japan', 'Canada'])
+
+        self.pane = pn.Column(self.checkbutton, self.get_plot(self.checkbutton))
         self.button = pn.widgets.Button(name='Visualization')
+
+        self.checkbutton.param.watch(self.update, 'value')
+
+    def get_plot(self, checkbutton):
+        gspec = pn.GridSpec(ncols=2, nrows=4, width=1200, height=1800)
+
+        selection = df.loc[df['country'].isin(checkbutton.value)]
+
+        # life expectancy plot
+        life_exp_plot = pn.pane.Plotly(
+            px.line(selection, x='year', y='life expectancy [age]', color='country', title='life expectancy'))
+
+        # plots about disease
+        plots = []
+        for col in COLUMNS[:-1]:
+            plots.append(pn.pane.Plotly(
+                px.line(selection, x='year', y=col, color='country', title=col.replace('[deaths]', 'per 100,000'))))
+
+        gspec[0, :] = life_exp_plot
+        gspec[1, 0] = plots[0]
+        gspec[1, 1] = plots[1]
+        gspec[2, 0] = plots[2]
+        gspec[2, 1] = plots[3]
+        gspec[3, 0] = plots[4]
+        gspec[3, 1] = plots[5]
+
+        return gspec
+
+    def update(self, event):
+        self.pane[1] = self.get_plot(self.checkbutton)
 
     def get_contents(self):
         return self.pane, self.button

@@ -1,4 +1,4 @@
 data_dir: 'data/'
 data_cleaned_dir: 'data/cleaned/'
 data_prepared_dir: 'data/prepared/'
-standardized_data: 'standardized_merged_data.csv'
+standardized_data: 'full_dataset_standardized.csv'

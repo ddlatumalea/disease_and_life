@@ -58,7 +58,8 @@ class Dashboard:
         collection = {
             'home': change_pane,
             'understanding': change_pane,
-            'visualization': change_pane
+            'visualization': change_pane,
+            'statistics': change_pane
         }
 
         return collection[key]

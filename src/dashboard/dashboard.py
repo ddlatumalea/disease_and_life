@@ -22,7 +22,7 @@ class Dashboard:
             raise ValueError('Only 1 modal is allowed.')
 
         # accent_base_color='#xxxxxx' changes the accent, default is pink
-        self.base = pn.template.FastListTemplate(title=title,)
+        self.base = pn.template.FastListTemplate(title=title, theme='dark')
         self.panes = panes
         self.btns = btns
         self.modals = modal

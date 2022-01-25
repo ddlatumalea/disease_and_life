@@ -14,7 +14,7 @@ class DataUnderstandingPage(Page):
 
     def __init__(self):
         super().__init__()
-        self.pane = pn.pane.PDF(pdf_path, height=1000)
+        self.pane = pn.pane.PDF(Path(DIR_PATH, 'Data understanding.pdf'), height=1000, width=1000)
         self.button = pn.widgets.Button(name='Data Understanding')
 
     def get_contents(self):

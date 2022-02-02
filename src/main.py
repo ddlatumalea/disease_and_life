@@ -29,5 +29,6 @@ btns = {
 
 if __name__ == '__main__':
     dashboard = Dashboard(title='Disease and Life Expectancy',
-                          panes=panes, btns=btns, modal={}, home_pane='home')
+                          panes=panes, btns=btns, modal={},  home_pane='home')
+
     dashboard.serve(50000)

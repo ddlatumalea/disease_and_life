@@ -46,6 +46,7 @@ class Dashboard:
         if len(self.modals) > 0:
             self.base.modal.extend([modal for modal in self.modals.values()])
 
+
     def get_callback(self, key: str) -> pn.Pane:
         """Callbacks that can alter the dashboard."""
 

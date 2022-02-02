@@ -67,7 +67,8 @@ class VisualizationPage(Page):
         plots = []
         for col in COLUMNS[:-1]:
             plots.append(pn.pane.Plotly(
-                px.line(selection, x='year', y=col, color='country', title=col.replace('[deaths]', 'per 100,000'))))
+                px.line(selection, x='year', y=col, labels={col: 'Deaths per 100.000 people'}, color='country',
+                        title=col.replace('[deaths]', ''))))
 
         gspec[0, :] = life_exp_plot
         gspec[1, 0] = plots[0]
